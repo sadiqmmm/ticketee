@@ -1,9 +1,11 @@
 <p>
  <%= link_to projects_path do %>
-    Go back projects
+    <%= fa_icon("long-arrow-left") %> projects
  <% end %>
 </p>
 
-<h1>Edit project</h1>
+<header>
+  <h1>Edit project</h1>
+</header>
 
 <%= render 'form', project: @project %>
