@@ -4,10 +4,17 @@
 
 <ul>
   <% @projects.each do |project| %>
-    <li><%= link_to project.name, project %> 
+    <li>
+    <%= link_to project.name, project %>
+
     <%= link_to edit_project_path(project) do %>
       Edit
     <% end %>
+
+    <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure?" } do %>
+      Destroy
+    <% end %>
     </li>
+
   <% end %>
 </ul>
