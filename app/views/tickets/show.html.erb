@@ -1,0 +1,15 @@
+<p>
+ <%= link_to project_path(@project) do %>
+   <%= fa_icon("long-arrow-left") %> project
+ <% end %>
+</p>
+
+<div id="ticket">
+  <header>
+    <h1><%= @project.name %></h1>
+  </header>
+  <header>
+    <h2><%= @ticket.name %></h2>
+  </header>
+<%= simple_format(@ticket.description) %>
+</div>
