@@ -47,7 +47,10 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:name, :description)
     end
 
-    def set_project
-      @project = Project.find(params[:id])
+    def set_project     
+        @project = Project.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash[:alert] = 'The project you were looking for could not be found.'
+      redirect_to projects_path      
     end
 end
