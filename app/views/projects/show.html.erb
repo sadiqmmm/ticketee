@@ -35,7 +35,12 @@
 <% @project.tickets.each do |ticket| %>
   <li>
     <%= link_to project_ticket_path(@project, ticket) do %>
-      <%= ticket.name %>
+      <%= ticket.name %>      
     <% end %>
   </li>
+  <ul class="actions">
+    <li>
+      <%= link_to "Edit Ticket", [:edit, @project, @ticket], class: "edit" %>
+    </li>
+  </ul>
 <% end %>
