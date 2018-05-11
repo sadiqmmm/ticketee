@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
     @ticket = @project.tickets.build
   end
 
-  def update    
+  def update
     if @ticket.update(ticket_params)
       flash[:notice] = "Ticket has been updated."
       redirect_to [@project, @ticket]
@@ -33,6 +33,12 @@ class TicketsController < ApplicationController
       flash.now[:alert] = "Ticket has not been updated."
       render "edit"
     end
+  end
+
+  def destroy
+    @ticket.destroy
+    flash[:notice] = "Ticket deleted"
+    redirect_to @project
   end
 
   private
